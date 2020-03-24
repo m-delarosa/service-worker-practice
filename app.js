@@ -1,3 +1,7 @@
+navigator.serviceWorker.register("service-worker.js")
+
+fetchPokemon().then(displayPokemon)
+
 function fetchPokemon(){
   return fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
     .then(response => response.json())
@@ -15,10 +19,6 @@ function displayPokemon(pokemon){
 function capitalize(string){
   return string.charAt(0).toUpperCase() + string.substring(1)
 }
-
-(function initialize(){
-  fetchPokemon().then(displayPokemon)
-})()
 
 document.querySelector("button").addEventListener("click", () => {
   fetchPokemon().then(displayPokemon)
