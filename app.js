@@ -1,11 +1,15 @@
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js")
+}
+
 fetchPokemon().then(displayPokemon)
 
-function fetchPokemon(){
+function fetchPokemon() {
   return fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
     .then(response => response.json())
 }
 
-function displayPokemon(pokemon){
+function displayPokemon(pokemon) {
   const $pokemon = document.querySelector(".pokemon")
 
   $pokemon.innerHTML = `
@@ -14,7 +18,7 @@ function displayPokemon(pokemon){
   `
 }
 
-function capitalize(string){
+function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.substring(1)
 }
 
